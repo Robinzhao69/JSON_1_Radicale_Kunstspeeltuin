@@ -9,6 +9,7 @@ let Receive = [];
 let button1 = document.getElementById("button1"); // bind button
 
 button1.addEventListener('click',function(){
+  Write.naam = document.getElementById("textInput2").value;
   Write.text = document.getElementById("textInput1").value;// get string from input
   Write.date = Date.now(); // get time stamp
   Write2 = [...Write2, Write]; // add all previous inputs
@@ -29,7 +30,7 @@ function processJson(jsonString) {
    let index = Receive.length-1;
    console.log(Receive[index].text);
     while(index >= 0){
-      displayString += index + " Time " + convertDate(Receive[index].date) + "<br>Message<br>" + Receive[index].text + "<br><br>"
+      displayString += index + " Time " + convertDate(Receive[index].date) + "<br><br>" + "naam:" + Receive[index].naam +  "<br>Message:<br>" + Receive[index].text + "<br><br><br><br>"
       index -= 1;
 }
   document.getElementById("output").innerHTML = displayString;
